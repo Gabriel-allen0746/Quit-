@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class PropagandaViewController: UIViewController {
+    @IBOutlet weak var quoteLabel: UITextView!
+
     
-    
+    @IBOutlet weak var imageView: UIImageView!
     var cig = NSUserDefaults.standardUserDefaults()
     
-    @IBOutlet weak var quoteLabel: UITextView!
-    @IBOutlet weak var imageView: UIImageView!
+    var gunshot = AVAudioPlayer()
+    var gunSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("gunshot", ofType: "mp3")!)
+    
+    var cash = AVAudioPlayer()
+    var cashSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cash", ofType: "mp3")!)
+
+    
     let quotes: [String] = [
         "Smoking causes 1 in every 5 deaths in the U.S. every year.",
         "Every cigarette you smoke reduces your expected life span by 11 minutes.",
@@ -56,6 +65,64 @@ class PropagandaViewController: UIViewController {
     @IBAction func addCigAction(sender: AnyObject) {
         let cigNum = cig.integerForKey("cigKey")
         cig.setInteger(cigNum+1, forKey: "cigKey")
+        
+        prepareGunAudios()
+
+
+
+    }
+    
+    func prepareGunAudios() {
+        
+        
+         // Preperation
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+            
+            
+            //play
+        }
+        do {
+            gunshot = try AVAudioPlayer(contentsOfURL: gunSound)
+        } catch _{
+        }
+        
+        gunshot.prepareToPlay()
+        gunshot.play()
+
+    }
+    
+    @IBAction func cashAction(sender: AnyObject) {
+        prepareCashAudios()
+    }
+    
+    func prepareCashAudios() {
+        
+        
+        // Preperation
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+            
+            
+            //play
+        }
+        do {
+            cash = try AVAudioPlayer(contentsOfURL: cashSound)
+        } catch _{
+        }
+        
+        cash.prepareToPlay()
+        cash.play()
         
     }
 

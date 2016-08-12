@@ -8,9 +8,11 @@
 
 import UIKit
 import Foundation
+import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var cigNumLabel: UILabel!
     @IBOutlet weak var cashWastedLabel: UILabel!
     @IBOutlet weak var timeLostLabel: UILabel!
@@ -18,14 +20,52 @@ class ViewController: UIViewController {
     @IBAction func unwindToViewController (sender: UIStoryboardSegue){
         
     }
+    @IBAction func unwindToViewControllerone (sender: UIStoryboardSegue){
+        prepareCashAudios()
+    }
     
     var cig = NSUserDefaults.standardUserDefaults()
+    
+    var coin = NSUserDefaults.standardUserDefaults()
+    
+    
+    var cash = AVAudioPlayer()
+    var cashSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cash", ofType: "mp3")!)
+    func prepareCashAudios() {
+        
+        
+        // Preperation
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+            
+            
+            //play
+        }
+        do {
+            cash = try AVAudioPlayer(contentsOfURL: cashSound)
+        } catch _{
+        }
+        
+        cash.prepareToPlay()
+        cash.play()
+        
+    }
+
     
 
     var cigNumber = 0.0
     var moneyWasted: Double = 0.0
     var timeLost = 0.0
     
+    func getCoin() {
+        let coinNum = coin.integerForKey("coinKey")
+        coinsLabel.text = "x\(coinNum)"
+    }
     
     func calcTime() {
         var totalTimeLost = cig.integerForKey("cigKey") * 11
@@ -79,6 +119,7 @@ class ViewController: UIViewController {
         calcTime()
         calcMoney()
         calcCig()
+        getCoin()
     }
 
     override func didReceiveMemoryWarning() {
