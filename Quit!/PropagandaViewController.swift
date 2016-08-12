@@ -153,6 +153,10 @@ class PropagandaViewController: UIViewController {
         imageView.image = randomImage()
         quoteLabel.text = randomQuote()
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        quoteLabel.setContentOffset(CGPointZero, animated: false)
+    }
 
 }

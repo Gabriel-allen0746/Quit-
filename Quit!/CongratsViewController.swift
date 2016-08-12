@@ -18,8 +18,6 @@ class CongratsViewController: UIViewController {
     
     var coin = NSUserDefaults()
     
-    var cash = AVAudioPlayer()
-    var cashSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cash", ofType: "mp3")!)
     
     let quotes = [
         "Man is not imprisoned by habit. Great changes in him can be wrought by crisis -- once that crisis can be recognized and understood.",
@@ -29,88 +27,28 @@ class CongratsViewController: UIViewController {
         
     ]
     
-    let images = [
-        "image1"
-    ]
-    
-
-    
-    func prepareCashAudios() {
-        
-        
-        // Preperation
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        } catch _ {
-        }
-        do {
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch _ {
-            
-            
-            //play
-        }
-        do {
-            cash = try AVAudioPlayer(contentsOfURL: cashSound)
-        } catch _{
-        }
-        
-        cash.prepareToPlay()
-        cash.play()
-        
-    }
 
 
-    func randCoin() {
-        
-        let randInt = drand48()
-        
-        let coinNum = coin.integerForKey("coinKey")
-        
-        if randInt <= 0.45 {
-            addCoinLabel.text = "x 1"
-            coin.setInteger(coinNum+1, forKey: "coinKey")
-        }
-        else if randInt <= 0.7 && randInt > 0.45 {
-            addCoinLabel.text = "x 2"
-            coin.setInteger(coinNum+2, forKey: "coinKey")
-        }
-        else if randInt > 0.7 && randInt <= 0.85 {
-            addCoinLabel.text = "x 3"
-            coin.setInteger(coinNum+3, forKey: "coinKey")
-    }
-        else if randInt > 0.85 && randInt < 0.92 {
-            addCoinLabel.text = "x 4"
-            coin.setInteger(coinNum+4, forKey: "coinKey")
-        }
-        else if randInt >= 0.92 && randInt <= 0.95 {
-            addCoinLabel.text = "x 5"
-            coin.setInteger(coinNum+5, forKey: "coinKey")
-        }
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        randCoin()
-    }
+    let gif1 = UIImage.gifWithName("gif1")
+    let gif2 = UIImage.gifWithName("gif2")
+    let gif3 = UIImage.gifWithName("gif3")
+    let gif4 = UIImage.gifWithName("gif4")
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupView()
-    }
-    
-    @IBAction func onNext(sender: UIButton) {
-        setupView()
-    }
-    
+
+
     private func randomImage() -> UIImage {
+        let images = [
+            gif1,
+            gif2,
+            gif3,
+            gif4
+        ]
         let idx = Int(arc4random_uniform(UInt32(images.count)))
-        guard let image = UIImage(named: images[idx]) else { fatalError() }
+
+        return images[idx]!
         
-        return image
-    }
+        }
     
     private func randomQuote() -> String {
         let idx = Int(arc4random_uniform(UInt32(quotes.count)))
@@ -119,11 +57,63 @@ class CongratsViewController: UIViewController {
     
     private func setupView() {
         imageView.image = randomImage()
+
         quoteLabel.text = randomQuote()
     }
 
+
+    
+    func randCoin() {
+        
+        let randInt = drand48()
+        
+        let coinNum = coin.integerForKey("coinKey")
+        
+        if randInt <= 0.35 {
+            addCoinLabel.text = "x 1"
+            coin.setInteger(coinNum+1, forKey: "coinKey")
+        }
+        else if randInt <= 0.7 && randInt > 0.35 {
+            addCoinLabel.text = "x 2"
+            coin.setInteger(coinNum+2, forKey: "coinKey")
+        }
+        else if randInt > 0.7 && randInt <= 0.85 {
+            addCoinLabel.text = "x 3"
+            coin.setInteger(coinNum+3, forKey: "coinKey")
+        }
+        else if randInt > 0.85 && randInt < 0.92 {
+            addCoinLabel.text = "x 4"
+            coin.setInteger(coinNum+4, forKey: "coinKey")
+        }
+        else if randInt >= 0.92 && randInt <= 0.95 {
+            addCoinLabel.text = "x 5"
+            coin.setInteger(coinNum+5, forKey: "coinKey")
+        }
+        else {
+            addCoinLabel.text = "x 24"
+            coin.setInteger(coinNum+24, forKey: "coinKey")
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-}
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        randCoin()
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        quoteLabel.setContentOffset(CGPointZero, animated: false)
+    }
+
 }

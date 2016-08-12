@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A71B26ED1D5E5B540004301E /* gif1.gif in Resources */ = {isa = PBXBuildFile; fileRef = A71B26EC1D5E5B540004301E /* gif1.gif */; };
+		A71B26EF1D5E60F50004301E /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B26EE1D5E60F50004301E /* UIImage+Gif.swift */; };
+		A71B26F31D5E6CB30004301E /* gif4.gif in Resources */ = {isa = PBXBuildFile; fileRef = A71B26F01D5E6CB30004301E /* gif4.gif */; };
+		A71B26F41D5E6CB30004301E /* gif3.gif in Resources */ = {isa = PBXBuildFile; fileRef = A71B26F11D5E6CB30004301E /* gif3.gif */; };
+		A71B26F51D5E6CB30004301E /* gif2.gif in Resources */ = {isa = PBXBuildFile; fileRef = A71B26F21D5E6CB30004301E /* gif2.gif */; };
 		A73015D21D5BF35500C8AE4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73015D11D5BF35500C8AE4E /* AppDelegate.swift */; };
 		A73015D41D5BF35500C8AE4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73015D31D5BF35500C8AE4E /* ViewController.swift */; };
 		A73015D71D5BF35500C8AE4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73015D51D5BF35500C8AE4E /* Main.storyboard */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A71B26EC1D5E5B540004301E /* gif1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif1.gif; sourceTree = "<group>"; };
+		A71B26EE1D5E60F50004301E /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		A71B26F01D5E6CB30004301E /* gif4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif4.gif; sourceTree = "<group>"; };
+		A71B26F11D5E6CB30004301E /* gif3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif3.gif; sourceTree = "<group>"; };
+		A71B26F21D5E6CB30004301E /* gif2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif2.gif; sourceTree = "<group>"; };
 		A73015CE1D5BF35400C8AE4E /* Quit!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quit!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73015D11D5BF35500C8AE4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A73015D31D5BF35500C8AE4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,8 +80,13 @@
 				A73015D81D5BF35500C8AE4E /* Assets.xcassets */,
 				A73015DA1D5BF35500C8AE4E /* LaunchScreen.storyboard */,
 				A73015DD1D5BF35500C8AE4E /* Info.plist */,
+				A71B26EC1D5E5B540004301E /* gif1.gif */,
+				A71B26F01D5E6CB30004301E /* gif4.gif */,
+				A71B26F11D5E6CB30004301E /* gif3.gif */,
+				A71B26F21D5E6CB30004301E /* gif2.gif */,
 				A7FE77BE1D5E4B8E00BE779A /* cash.mp3 */,
 				A7FE77BC1D5D934D00BE779A /* gunshot.mp3 */,
+				A71B26EE1D5E60F50004301E /* UIImage+Gif.swift */,
 			);
 			path = "Quit!";
 			sourceTree = "<group>";
@@ -135,10 +150,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A73015DC1D5BF35500C8AE4E /* LaunchScreen.storyboard in Resources */,
+				A71B26ED1D5E5B540004301E /* gif1.gif in Resources */,
 				A73015D91D5BF35500C8AE4E /* Assets.xcassets in Resources */,
 				A7FE77BF1D5E4B8E00BE779A /* cash.mp3 in Resources */,
 				A7FE77BD1D5D934D00BE779A /* gunshot.mp3 in Resources */,
+				A71B26F41D5E6CB30004301E /* gif3.gif in Resources */,
 				A73015D71D5BF35500C8AE4E /* Main.storyboard in Resources */,
+				A71B26F51D5E6CB30004301E /* gif2.gif in Resources */,
+				A71B26F31D5E6CB30004301E /* gif4.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +171,7 @@
 				A73015E41D5CF95500C8AE4E /* PropagandaViewController.swift in Sources */,
 				A73015D41D5BF35500C8AE4E /* ViewController.swift in Sources */,
 				A73015D21D5BF35500C8AE4E /* AppDelegate.swift in Sources */,
+				A71B26EF1D5E60F50004301E /* UIImage+Gif.swift in Sources */,
 				A73015E61D5CFE8000C8AE4E /* CongratsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
